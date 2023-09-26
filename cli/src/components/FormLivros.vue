@@ -1,5 +1,8 @@
 <script>
-import axios from 'axios';
+import axios from "axios";
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
+
 export default {
   data() {
     return {
@@ -12,28 +15,23 @@ export default {
   },
   methods: {
     handleSubmit() {
-      console.log("Submit");
-      console.log({
-        titulo: this.titulo,
-        autor: this.autor,
-        url: this.url,
-        anoPublicado: this.anoPublicado,
-        preco: this.preco,
-      });
-
       axios({
         method: "POST",
-        url: 'https://',
+        url: "http://localhost:3000/livros",
         data: {
-           titulo: this.titulo,
-        autor: this.autor,
-        url: this.url,
-        anoPublicado: this.anoPublicado,
-        preco: this.preco,
-        }
-      }).then(() => {
-        console.log("Added in beck")
-      })
+          titulo: this.titulo,
+          autor: this.autor,
+          foto: this.url,
+          ano: this.anoPublicado,
+          preco: this.preco,
+        },
+      }).then((res) => {
+          toast.success("Livro adicionado!");
+          console.log(res);
+        }).catch((err) => {
+          toast.error("Livro nao foi adicionado!");
+          console.log(err);
+        });
     },
     reset() {
       this.titulo = "";

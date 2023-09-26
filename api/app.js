@@ -2,7 +2,9 @@ const express = require("express");
 const livros = require("./livros");
 const app = express();
 const port = 3000;
+const cors = require('cors');
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
