@@ -1,25 +1,24 @@
 <script>
+import Navbar from "./components/Navbar.vue";
+import FormLivros from "./components/FormLivros.vue";
+
 export default {
   name: "App",
+  components: { Navbar, FormLivros },
 };
 </script>
 
 <template>
-  <div class="center">
-    <h1>Hello Word</h1>
-  </div>
+  <main class="wrapper">
+    <Navbar />
+    <FormLivros />
+  </main>
 </template>
 
 <style scoped>
-.center {
-  height: 100%;
-  width: 100%;
+.wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.active {
-  border: 2px red solid;
+  width: 100%;
 }
 </style>
