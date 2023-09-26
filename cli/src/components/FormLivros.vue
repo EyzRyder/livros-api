@@ -26,10 +26,9 @@ export default {
           preco: this.preco,
         },
       }).then((res) => {
-          toast.success("Livro adicionado!");
-          console.log(res);
+          toast.success(`Livro cadastrado com código ${res.data.id}`);
         }).catch((err) => {
-          toast.error("Livro nao foi adicionado!");
+          toast.error(`Error... Livro não castrado: ${err.message}`);
           console.log(err);
         });
     },
